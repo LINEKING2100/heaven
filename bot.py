@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 
 client = discord.Client()
+intents = discord.Intents.default()
+intents.members = True
 
 @client.event
 async def on_ready():
@@ -19,7 +21,8 @@ async def on_message(message):
 
 @client.event
 async def on_member_join(member):
-    await client.get_channel(835721627828092971).send(""" HEAVYgiant( 헵자 )님 팬서버에 오신 걸 환영합니다! 메시지 하단에 있는 채널을 읽어주시고 활동을 시작해주세요! ( 공지, 밈 채널 제외 )
+    await member.send('Private message')
+    await client.get_channel(835721627828092971).send(member.mention + """ HEAVYgiant( 헵자 )님 팬서버에 오신 걸 환영합니다! 메시지 하단에 있는 채널을 읽어주시고 활동을 시작해주세요! ( 공지, 밈 채널 제외 )
 규칙 : #💌│to-follow 
 채널 설명 : #💌│info-chn 
 역할 설명 & 역할 선택 : #💌│info-role 
